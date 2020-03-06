@@ -23,6 +23,11 @@
         fieldset {
             width: 440px;
         }
+        
+        .last {
+            background-color: lightgrey;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -39,7 +44,7 @@
                 <input type="text " name="number " required placeholder="请输入学号 " />
                 <p class="red ">*</p><br/>
                 <p>手机号：</p>
-                <input type="text " name="phone " required placeholder="请输入手机号 " />
+                <input type="tel " name="phone " required placeholder="请输入手机号 " />
                 <p class="red ">*</p><br/>
                 <p>邮箱地址：</p>
                 <input type="email " name="email " required placeholder="请输入邮箱地址 " />
@@ -53,13 +58,13 @@
                     <option>河北财经大学</option>
                 </datalist>
                 <p>入学成绩：</p>
-                <input type="text " name="mark " /><br/>
+                <input type="number " name="mark " min="0 " max="100 " step="1 " />
+                <br/>
                 <p>入学时间：</p>
                 <input type="date " name="date " placeholder="年/月/日 " /><br/><br/>
-                <input type="submit " value="提交 " style="background-color:lightgrey; text-align: center; " />
+                <input type="submit " value="提交 " class="last "/>
             </fieldset>
         </form>
     </div>
 </div>
-
 </html>
