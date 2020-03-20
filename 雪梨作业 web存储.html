@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雪梨作业 页面换肤</title>
+    <style type="text/css">
+        li {
+            list-style-type: none;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        
+        ul {
+            height: 70px;
+        }
+        
+        legend {
+            color: firebrick;
+            font-size: 30px;
+            font-weight: 800;
+        }
+        
+        .color1 {
+            background-color: salmon;
+        }
+        
+        .color2 {
+            background-color: orange;
+        }
+        
+        .color3 {
+            background-color: yellow;
+        }
+        
+        .color4 {
+            background-color: lightgreen;
+        }
+        
+        .color5 {
+            background-color: lightblue;
+        }
+        
+        .color6 {
+            background-color: pink;
+        }
+        
+        #box {
+            width: 500px;
+            height: 70px;
+            border-color: silver;
+            border-style: solid;
+        }
+        
+        #div {
+            margin: 20px;
+        }
+        
+        fieldset {
+            width: 550px;
+            height: 200px;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>页面换肤</legend>
+        <div id="box">
+            <ul>
+                <li class="color1" id="li1" title="红色" onclick="over1()"></li>
+                <li class="color2" id="li2" title="橘色" onclick="over2()"></li>
+                <li class="color3" id="li3" title="黄色" onclick="over3()"></li>
+                <li class="color4" id="li4" title="绿色" onclick="over4()"></li>
+                <li class="color5" id="li5" title="蓝色" onclick="over5()"></li>
+                <li class="color6" id="li6" title="紫色" onclick="over6()"></li>
+            </ul>
+        </div>
+        <div class="div" id="div">
+            <p>
+                LocalStorage将数据保存在客户端本地的硬件设备中，即使浏览器被关闭了，该数据仍然存在，下次打开浏览器访问网站时仍然可以继续使用。
+            </p>
+        </div>
+    </fieldset>
+</body>
+<script type="text/javascript">
+    var div = document.getElementById("div");
+    var li1 = document.getElementById("li1");
+    var li2 = document.getElementById("li2");
+    var li3 = document.getElementById("li3");
+    var li4 = document.getElementById("li4");
+    var li5 = document.getElementById("li5");
+    var li6 = document.getElementById("li6");
+    window.onload = function() {
+        div.style.backgroundColor = localStorage.getItem("backgroundColor");
+        if (localStorage.getItem("backgroundColor") == "salmon") {
+            li1.style.marginBottom = 10 + "px";
+        } else if (localStorage.getItem("backgroundColor") == "orange") {
+            li2.style.marginBottom = 10 + "px";
+        } else if (localStorage.getItem("backgroundColor") == "yellow") {
+            li3.style.marginBottom = 10 + "px";
+        } else if (localStorage.getItem("backgroundColor") == "lightgreen") {
+            li4.style.marginBottom = 10 + "px";
+        } else if (localStorage.getItem("backgroundColor") == "lightblue") {
+            li5.style.marginBottom = 10 + "px";
+        } else if (localStorage.getItem("backgroundColor") == "pink") {
+            li6.style.marginBottom = 10 + "px";
+        }
+    }
+
+    function over1() {
+        if (localStorage) {
+            li1.style.marginBottom = 10 + "px";
+            if (li2.style.marginBottom == "10px") {
+                li2.style.marginBottom = 0
+            } else if (li3.style.marginBottom == "10px") {
+                li3.style.marginBottom = 0
+            } else if (li4.style.marginBottom == "10px") {
+                li4.style.marginBottom = 0
+            } else if (li5.style.marginBottom == "10px") {
+                li5.style.marginBottom = 0
+            } else if (li6.style.marginBottom == "10px") {
+                li6.style.marginBottom = 0
+            }
+            localStorage.setItem("backgroundColor", "salmon");
+            div.style.backgroundColor = localStorage.getItem("backgroundColor");
+        } else {
+            alert("您的浏览器out了，请尽快更新");
+        }
+    }
+
+    function over2() {
+        // var li2 = document.getElementById("li2");
+        if (localStorage) {
+            li2.style.marginBottom = 10 + "px";
+            if (li1.style.marginBottom == "10px") {
+                li1.style.marginBottom = 0
+            } else if (li3.style.marginBottom == "10px") {
+                li3.style.marginBottom = 0
+            } else if (li4.style.marginBottom == "10px") {
+                li4.style.marginBottom = 0
+            } else if (li5.style.marginBottom == "10px") {
+                li5.style.marginBottom = 0
+            } else if (li6.style.marginBottom == "10px") {
+                li6.style.marginBottom = 0
+            }
+            localStorage.setItem("backgroundColor", "orange");
+            div.style.backgroundColor = localStorage.getItem("backgroundColor");
+        } else {
+            alert("您的浏览器out了，请尽快更新");
+        }
+    }
+
+    function over3() {
+        // var li3 = document.getElementById("li3");
+        if (localStorage) {
+            li3.style.marginBottom = 10 + "px";
+            if (li2.style.marginBottom == "10px") {
+                li2.style.marginBottom = 0
+            } else if (li1.style.marginBottom == "10px") {
+                li1.style.marginBottom = 0
+            } else if (li4.style.marginBottom == "10px") {
+                li4.style.marginBottom = 0
+            } else if (li5.style.marginBottom == "10px") {
+                li5.style.marginBottom = 0
+            } else if (li6.style.marginBottom == "10px") {
+                li6.style.marginBottom = 0
+            }
+            localStorage.setItem("backgroundColor", "yellow");
+            div.style.backgroundColor = localStorage.getItem("backgroundColor");
+        } else {
+            alert("您的浏览器out了，请尽快更新");
+        }
+    }
+
+    function over4() {
+        // var li4 = document.getElementById("li4");
+        if (localStorage) {
+            li4.style.marginBottom = 10 + "px";
+            if (li2.style.marginBottom == "10px") {
+                li2.style.marginBottom = 0
+            } else if (li3.style.marginBottom == "10px") {
+                li3.style.marginBottom = 0
+            } else if (li1.style.marginBottom == "10px") {
+                li1.style.marginBottom = 0
+            } else if (li5.style.marginBottom == "10px") {
+                li5.style.marginBottom = 0
+            } else if (li6.style.marginBottom == "10px") {
+                li6.style.marginBottom = 0
+            }
+            localStorage.setItem("backgroundColor", "lightgreen");
+            div.style.backgroundColor = localStorage.getItem("backgroundColor");
+        } else {
+            alert("您的浏览器out了，请尽快更新");
+        }
+    }
+
+    function over5() {
+        // var li5 = document.getElementById("li5");
+        if (localStorage) {
+            li5.style.marginBottom = 10 + "px";
+            if (li2.style.marginBottom == "10px") {
+                li2.style.marginBottom = 0
+            } else if (li3.style.marginBottom == "10px") {
+                li3.style.marginBottom = 0
+            } else if (li4.style.marginBottom == "10px") {
+                li4.style.marginBottom = 0
+            } else if (li1.style.marginBottom == "10px") {
+                li1.style.marginBottom = 0
+            } else if (li6.style.marginBottom == "10px") {
+                li6.style.marginBottom = 0
+            }
+            localStorage.setItem("backgroundColor", "lightblue");
+            div.style.backgroundColor = localStorage.getItem("backgroundColor");
+        } else {
+            alert("您的浏览器out了，请尽快更新");
+        }
+    }
+
+    function over6() {
+        // var li6 = document.getElementById("li6");
+        if (localStorage) {
+            li6.style.marginBottom = 10 + "px";
+            if (li2.style.marginBottom == "10px") {
+                li2.style.marginBottom = 0
+            } else if (li3.style.marginBottom == "10px") {
+                li3.style.marginBottom = 0
+            } else if (li4.style.marginBottom == "10px") {
+                li4.style.marginBottom = 0
+            } else if (li5.style.marginBottom == "10px") {
+                li5.style.marginBottom = 0
+            } else if (li1.style.marginBottom == "10px") {
+                li1.style.marginBottom = 0
+            }
+            localStorage.setItem("backgroundColor", "pink");
+            div.style.backgroundColor = localStorage.getItem("backgroundColor");
+        } else {
+            alert("您的浏览器out了，请尽快更新");
+        }
+    }
+</script>
+
+</html>
