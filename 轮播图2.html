@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .outer {
+            height: 470px;
+            width: 590px;
+            margin: 50px auto;
+            position: relative;
+        }
+        
+        .img li {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .num {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            bottom: 20px;
+        }
+        
+        .num li {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: darkgray;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            margin: 0 20px;
+        }
+        
+        .btn {
+            position: absolute;
+            width: 20px;
+            height: 50px;
+            background-color: rgba(169, 169, 169, 0.575);
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            top: 50%;
+            margin-top: -25px;
+            display: none;
+        }
+        
+        .left_btn {
+            left: 0;
+        }
+        
+        .right_btn {
+            right: 0;
+        }
+        
+        .outer:hover .btn {
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        .current {
+            background-color: white!important;
+        }
+        
+        ul img {
+            height: 470px;
+            width: 590px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+
+        <ul class="img">
+            <li>
+                <a><img src="images/百草味.jpg" id="one"></a>
+            </li>
+            <li>
+                <a><img src="images/满399减100.jpg" id="two"></a>
+            </li>
+            <li>
+                <a><img src="images/热水器.jpg" id="three"></a>
+            </li>
+            <li>
+                <a><img src="images/龙茶.jpg" id="four"></a>
+            </li>
+        </ul>
+
+
+        <ul class="num">
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <div class="left_btn btn">
+            <</div>
+                <div class="right_btn btn">></div>
+        </div>
+</body>
+<script src="js/jquery.js"></script>
+<script>
+    var index = 0;
+    $(".num li").mousemove(function() {
+        $(this).addClass("current").siblings().removeClass("current");
+        index = $(this).index();
+        $(".img li").eq(index).stop().fadeIn(1000).siblings().stop().fadeOut(1000);
+    });
+    var time = setInterval(move, 3000);
+
+    function move() {
+        index++;
+        if (index == 4) {
+            index = 0
+        }
+        $(".num li").eq(index).addClass("current").siblings().removeClass("current");
+        $(".img li").eq(index).stop().fadeIn(1000).siblings().stop().fadeOut(1000);
+    };
+    $(".outer").hover(function() {
+            clearInterval(time);
+        },
+        function() {
+            time = setInterval(move, 3000);
+        });
+    $(".right_btn").click(function() {
+        move();
+    });
+
+    function moveL() {
+        index--;
+        if (index == -1) {
+            index = 3
+        }
+        $(".num li").eq(index).addClass("current").siblings().removeClass("current");
+        $(".img li").eq(index).stop().fadeIn(1000).siblings().stop().fadeOut(1000);
+    }
+    $(".left_btn").click(function() {
+        moveL();
+    });
+</script>
+
+</html>
